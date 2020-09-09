@@ -130,10 +130,10 @@ const Layout = ({ children }) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         <ContentWrapper>{children}</ContentWrapper>
         <Footer>
-          <StyledLink as='a' href='mailto:darkaceapparel@gamil.com'>DARKACEAPPAREL@GMAIL.COM</StyledLink>
+          <StyledLink as='a' href='mailto:bueltmannchiropractic@gmail.com'>bueltmannchiropractic@gmail.com</StyledLink>
           <IconWrapper>
-            <StyledLink as='a' href='https://www.facebook.com/Dark-Ace-Disc-Golf-Apparel-100462504774316/' target='_blank' rel="noopener"><FbIcon /></StyledLink>
-            <StyledLink as='a' href='https://www.instagram.com/darkaceapparel/' target='_blank' rel="noopener"><IgIcon /></StyledLink>
+            <StyledLink as='a' href='https://www.facebook.com/BueltmannChiropractic/' target='_blank' rel="noopener"><FbIcon /></StyledLink>
+            <StyledLink as='a' href='https://www.instagram.com/bueltmannchiropractic/' target='_blank' rel="noopener"><IgIcon /></StyledLink>
           </IconWrapper>
         </Footer>
       </Wrapper>
