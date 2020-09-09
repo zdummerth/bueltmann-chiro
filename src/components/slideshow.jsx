@@ -3,13 +3,11 @@ import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { RiArrowRightLine, RiArrowLeftLine } from 'react-icons/ri'
-import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const SlideshowContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // border: 1px solid #C00A0A;
   position: relative;
   margin: 15px auto;
   max-width: 1200px;
@@ -64,17 +62,6 @@ const Dot = styled.div`
   }
   `
 
-const ExtIcon = styled(FaExternalLinkAlt)`
-  font-size: 15px;
-  margin-left: 5px;
-  color: #C00A0A;
-`
-const InStoreLink = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2px;
-`
 
 const SlideShow = () => {
 
@@ -142,7 +129,6 @@ const data = useStaticQuery(graphql`
         <ImagesContainer>
           {images}
         </ImagesContainer>
-        <InStoreLink href={currentLink} target='_blank' rel='noreferrer'>View in shop<ExtIcon /></InStoreLink>
         <SlideshowControls>
           <SlideshowButton onClick={handlePrevious}><RiArrowLeftLine/></SlideshowButton>
             <DotContainer>

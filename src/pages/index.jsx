@@ -3,10 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import Slideshow from '../components/slideshow'
-
 import Layout from "../components/layout"
-// import Logo from "../components/logo"
 import SEO from "../components/seo"
 
 
@@ -23,14 +20,13 @@ const IndexPage = ({data}) => {
       <ImgWrapper>
         <Img fluid={data.file.childImageSharp.fluid} />
       </ImgWrapper>
-      <Slideshow />
     </Layout>
   )
 }
 
 export const query = graphql`
 query {
-  file(relativePath: { eq: "motto.png" }) {
+  file(relativePath: { eq: "main-image.webp" }) {
     childImageSharp {
       fluid(maxWidth: 1200) {
         ...GatsbyImageSharpFluid

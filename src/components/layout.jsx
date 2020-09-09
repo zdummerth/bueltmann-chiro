@@ -12,15 +12,14 @@ import styled, { createGlobalStyle } from "styled-components"
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 import Header from "./header"
-// import CartLink from './cart-link'
 
 
 import 'normalize.css';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #020202;
-    color: #C00A0A;
+    // background: #020202;
+    // color: white;
   }
   a {
     text-decoration: none;

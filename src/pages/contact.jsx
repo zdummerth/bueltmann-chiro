@@ -20,7 +20,6 @@ const Overlay = styled.div`
 `
 const TextWrapper = styled.div`
     text-align: center;
-    // padding-top: 20vh;
     margin: 20vh auto 0;
     width: 90%;
 
@@ -40,13 +39,13 @@ const ContactPage = ({data}) => {
                     alt={'bone basket background'}
                     style={{
                         //Not exactly sure how this works, but this makes the image appear bigger and more center on smaller screens
-                        paddingTop: '100px',
+                        // paddingTop: '100px',
                     }}
                 />
                 <Overlay>
                     <TextWrapper>
-                        <p>For sponsorships of any kind, custom artwork, or to share your favorite band, please send us an email :</p>
-                        <p>DARKACEAPPAREL@GMAIL.COM</p>
+                        <p>(314) 346-6822</p>
+                        <p>bueltmannchiropractic@gmail.com</p>
                     </TextWrapper>
                 </Overlay>
             </BgWrapper>
@@ -56,7 +55,7 @@ const ContactPage = ({data}) => {
 
 export const query = graphql`
 query {
-  file(relativePath: { eq: "bg.jpg" }) {
+  file(relativePath: { eq: "desk.webp" }) {
     childImageSharp {
       fluid(maxWidth: 1000) {
         ...GatsbyImageSharpFluid

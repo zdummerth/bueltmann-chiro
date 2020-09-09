@@ -1,13 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import styled, { createGlobalStyle } from "styled-components"
-import { FaFacebookF, FaInstagram, FaExternalLinkAlt } from 'react-icons/fa';
-import { GlobalStateContext } from '../context/GlobalContextProvider'
+
 
 import Logo from "./logo"
 
-import CartLink from './cart-link'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -18,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const HeaderWrapper = styled.header`
-  background: #020202;
+  // background: #020202;
   margin-bottom: 2px;
   border-bottom: 1px solid #C00A0A;
   padding: 0 1rem;
@@ -123,7 +121,6 @@ const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   white-space: nowrap;
-  color: white;
   margin: 1rem;
   transition: all 200ms ease-in;
   position: relative;
@@ -154,35 +151,9 @@ const StyledLink = styled(Link)`
     z-index: 6;
   }
 `
-const IconWrapper = styled.div`
-  display: flex;
 
-  // @media (max-width: 900px) {
-  //   margin-top: 2rem;
-  // }
-`
-const FbIcon = styled(FaFacebookF)`
-  font-size: 22px;
-  @media (max-width: 900px) {
-    font-size: 28px;
-  }
-`
-const IgIcon = styled(FaInstagram)`
-  font-size: 22px;
-  @media (max-width: 900px) {
-    font-size: 28px;
-  }
-`
-const ExtIcon = styled(FaExternalLinkAlt)`
-  font-size: 15px;
-  // margin-left: 5px;
-`
+
 const Header = ({ siteTitle }) => {
-  const {
-    store: { checkout: { lineItems } },
-  } = useContext(GlobalStateContext)
-  
-  const totalQuantity = lineItems.reduce((acc, cv) => acc + cv.quantity, 0)
 
   const MenuItems = [
     {
@@ -193,14 +164,6 @@ const Header = ({ siteTitle }) => {
       path: "/contact",
       title: "Contact"
     },
-    {
-      path: "/products",
-      title: "Products"
-    },
-    {
-      path: '/cart',
-      title: `Cart (${totalQuantity})`
-    }
   ]
 
   const [navbarClosed, setNavbarClosed] = useState(true);
@@ -208,14 +171,6 @@ const Header = ({ siteTitle }) => {
   const links = MenuItems.map((menuItem, index) => (
   <StyledLink key={index} to={menuItem.path}>{menuItem.title}</StyledLink>
   ))
-  const extLinks = 
-    <>
-      <StyledLink as='a' href='https://www.byjack.com/collections/dark-ace' target='_blank' rel="noopener">Shop <ExtIcon /></StyledLink>
-      <IconWrapper>
-        <StyledLink as='a' href='https://www.facebook.com/Dark-Ace-Disc-Golf-Apparel-100462504774316/' target='_blank' rel="noopener"><FbIcon /></StyledLink>
-        <StyledLink as='a' href='https://www.instagram.com/darkaceapparel/' target='_blank' rel="noopener"><IgIcon /></StyledLink>
-      </IconWrapper>
-    </>
 
   return (
     <HeaderWrapper>
@@ -229,11 +184,9 @@ const Header = ({ siteTitle }) => {
         <LogoLink to='/'>
             <Logo />
         </LogoLink>
-        <CartLink useIcon={true}/>
         <Navbox closed={navbarClosed}>
           <GlobalStyle closed={navbarClosed}/>
           {links}
-          {extLinks}
         </Navbox>
       </Nav>
     </HeaderWrapper>
