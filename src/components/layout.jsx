@@ -37,8 +37,8 @@ const ContentWrapper = styled.main`
   flex: 1;
   position: relative;
   width: 100vw;
-  max-width: 1200px;
-  margin: 0 auto;
+  // max-width: 1200px;
+  // margin: 0 auto;
 `
 
 const Footer = styled.footer`
