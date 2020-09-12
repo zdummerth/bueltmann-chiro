@@ -6,8 +6,8 @@ import styled from 'styled-components'
 const BgWrapper = styled.div`
     position: relative;
     color: white;
-    height: 90vh;
-    overflow: hidden;
+    // height: 500px;
+    // overflow: hidden;
 `
 
 const Overlay = styled.div`
@@ -22,7 +22,7 @@ const Overlay = styled.div`
   align-items: center;
 `
 const TextWrapper = styled.div`
-    font-size: 2.2rem;
+    font-size: 2rem;
 `
 
 const BackgroundSection = ({fluid}) => {
@@ -31,8 +31,12 @@ const BackgroundSection = ({fluid}) => {
             <Img 
                 fluid={fluid} 
                 alt={'background image of doctor with patient'}
+                style={{
+                    height: '80vh'
+                }}
                 imgStyle={{ 
-                    objectFit: 'contain', 
+                    // objectFit: 'fill', 
+                    // objectPosition: "50% 50%",
                 }}
             />
             <Overlay>
