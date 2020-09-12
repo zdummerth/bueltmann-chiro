@@ -49,6 +49,21 @@ const ConditionsTreated = styled.div`
   }
 `
 
+const OfficeHours = styled.div`
+  background-color: white;
+  padding: 3rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  #first {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+`
+
 const IndexPage = ({data}) => {
   // console.log({data})
   return (
@@ -56,7 +71,17 @@ const IndexPage = ({data}) => {
       <SEO title="Home" />
       <BackgroundSection
         fluid={data.main.childImageSharp.fluid}
-      />
+      >
+        <div 
+          style={{
+            color: 'white',
+          }}
+        >
+          <h2>WELCOME TO</h2>
+          <h2>BUELTMANN</h2>
+          <h2>CHIROPRACTIC</h2>
+        </div>
+      </BackgroundSection>
       <Description>
         <div id='container'>
           <p>
@@ -102,6 +127,15 @@ const IndexPage = ({data}) => {
           }}
         />
       </ConditionsTreated>
+      <BackgroundSection
+        fluid={data.desk.childImageSharp.fluid}
+      >
+        <OfficeHours>
+          <p id='first'>Office Hours</p>
+          <p>Hours by appointment only.</p>
+          <p>Please call to schedule</p>
+        </OfficeHours>
+      </BackgroundSection>
     </Layout>
   )
 }

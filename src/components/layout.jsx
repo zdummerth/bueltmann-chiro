@@ -19,7 +19,7 @@ import 'normalize.css';
 const GlobalStyle = createGlobalStyle`
   body {
     // background: #020202;
-    // color: white;
+    color: rgba(0,0,0,.8);
   }
   a {
     text-decoration: none;

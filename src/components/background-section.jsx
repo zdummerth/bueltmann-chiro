@@ -5,9 +5,6 @@ import styled from 'styled-components'
 
 const BgWrapper = styled.div`
     position: relative;
-    color: white;
-    // height: 500px;
-    // overflow: hidden;
 `
 
 const Overlay = styled.div`
@@ -22,10 +19,10 @@ const Overlay = styled.div`
   align-items: center;
 `
 const TextWrapper = styled.div`
-    font-size: 2rem;
+    // font-size: 2rem;
 `
 
-const BackgroundSection = ({fluid}) => {
+const BackgroundSection = ({fluid, children}) => {
     return (
         <BgWrapper>
             <Img 
@@ -41,9 +38,7 @@ const BackgroundSection = ({fluid}) => {
             />
             <Overlay>
                 <TextWrapper>
-                    <h2>WELCOME TO</h2>
-                    <h2>BUELTMANN</h2>
-                    <h2>CHIROPRACTIC</h2>
+                    {children}
                 </TextWrapper>
             </Overlay>
         </BgWrapper>
