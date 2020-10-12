@@ -16,9 +16,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const HeaderWrapper = styled.header`
-  // background: #020202;
-  margin-bottom: 2px;
-  border-bottom: 1px solid #C00A0A;
   padding: 0 1rem;
   @media (min-width: 900px) {
     font-size: .9rem;

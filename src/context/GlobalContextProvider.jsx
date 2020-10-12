@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 export const GlobalStateContext = React.createContext()
 
 
 
 const GlobalContextProvider = ({ children }) => {
-  let initialStoreState = {
-  }
-
-
-  
   return (
     <GlobalStateContext.Provider 
-    value={{}}
+      value={{}}
     >
         {children}
     </GlobalStateContext.Provider>

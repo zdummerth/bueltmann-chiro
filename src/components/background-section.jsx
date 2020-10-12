@@ -13,33 +13,22 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.5);
+  background: ${props => `rgba(0,0,0,${props.shade})`};
   display: flex;
   justify-content: center;
   align-items: center;
 `
-const TextWrapper = styled.div`
-    // font-size: 2rem;
-`
 
-const BackgroundSection = ({fluid, children}) => {
+const BackgroundSection = ({fluid, children, className, shade}) => {
     return (
         <BgWrapper>
             <Img 
                 fluid={fluid} 
                 alt={'background image of doctor with patient'}
-                style={{
-                    height: '80vh'
-                }}
-                imgStyle={{ 
-                    // objectFit: 'fill', 
-                    // objectPosition: "50% 50%",
-                }}
+                className={className}
             />
-            <Overlay>
-                <TextWrapper>
-                    {children}
-                </TextWrapper>
+            <Overlay shade={shade ? shade : '0'}>
+                {children}
             </Overlay>
         </BgWrapper>
     )
