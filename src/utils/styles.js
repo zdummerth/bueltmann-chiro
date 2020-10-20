@@ -8,10 +8,9 @@
  *    border-color: ${colors.brand}40;
  */
 export const colors = {
-  brand: '#C00A0A',
-  brandBright: '#e0d6eb',
-  brandLight: '#f5f3f7',
-  brandLighter: '#fbfafc',
+  lightTeal: 'rgba(0,128,128,.2)',
+  lightGrey: 'rgba(128,128,128,.08)',
+  darkGrey: 'rgba(128,128,128,.8)',
   lightest: '#ffffff',
   darkest: '#4d4058',
   text: '#333333',

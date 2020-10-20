@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { colors } from '../../utils/styles'
 
 import Header from "./header"
 
@@ -17,10 +18,26 @@ import Header from "./header"
 import 'normalize.css';
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    // background: #020202;
-    color: rgba(0,0,0,.8);
+  html {
+    box-sizing: border-box;
   }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+    color: ${colors.text};
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.375;
+    margin: 0 auto;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -37,18 +54,18 @@ const ContentWrapper = styled.main`
   flex: 1;
   position: relative;
   width: 100vw;
-  max-width: 1700px;
-  margin: 0 auto;
+  background-color: ${colors.lightGrey};
+  // max-width: 1700px;
+  // margin: 0 auto;
 `
 
 const Footer = styled.footer`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid #C00A0A;
-  padding: 0 2vh;
-  margin-top: 3vh;
-  background-color: #262626;
+  padding: 0 30px;
+  // margin-top: 3vh;
+  background-color: ${colors.darkGrey};
   @media (max-width: 900px) {
     flex-direction: column;
     p {

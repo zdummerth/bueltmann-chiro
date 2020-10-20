@@ -3,12 +3,12 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import BackgroundSection from "../components/background-section"
 
 import SEO from "../components/seo"
 
-import { breakpoints } from '../utils/styles'
+import { breakpoints, colors } from '../utils/styles'
 
 
 const Container = styled.div`
@@ -23,7 +23,7 @@ const WelcomeTextContainer = styled.div`
   }
 `
 const Description = styled.div`
-  background: rgba(0,128,128,.2);
+  background: ${colors.lightTeal};
   padding: 2rem 0;
 
   #container {
@@ -57,7 +57,7 @@ const ConditionsTreated = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(128,128,128,.2);
+    background: ${colors.lightGrey};
   }
 
   #text-container {
@@ -65,7 +65,7 @@ const ConditionsTreated = styled.div`
     margin: 0 auto;
   }
 
-  @media (min-width: ${breakpoints.desktop}) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
     width: 90%;
     max-width: 950px;
@@ -168,29 +168,29 @@ const IndexPage = ({data}) => {
 }
 
 export const query = graphql`
-query {
-  main: file(relativePath: { eq: "main-image.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid
+  query {
+    main: file(relativePath: { eq: "main-image.webp" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    patient: file(relativePath: { eq: "patient.webp" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    desk: file(relativePath: { eq: "desk.webp" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
-  patient: file(relativePath: { eq: "patient.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 600) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  desk: file(relativePath: { eq: "desk.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-}
 `
 
 export default IndexPage

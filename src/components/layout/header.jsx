@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import styled, { createGlobalStyle } from "styled-components"
+import { colors } from '../../utils/styles'
 
 
 import Logo from "./logo"
@@ -33,7 +34,6 @@ const Nav = styled.nav`
   justify-content: space-between;
   text-transform: uppercase;
   z-index: 50;
-  // align-self: center;
   align-items: center;
 
   @media (max-width: 768px) {
@@ -49,7 +49,6 @@ const Toggle = styled.div`
   display: none;
   height: 100%;
   cursor: pointer;
-  // margin: 0 10vw;
 
   @media (max-width: 900px) {
     display: flex;
@@ -69,14 +68,13 @@ const Navbox = styled.div`
     width: 100%;
     background-color: #020202;
     opacity: .95;
-    border-top: 1px solid #C00A0A;
+    // border-top: 1px solid ${colors.lightTeal};
     transition: all 0.3s ease-in;
     top: 70px;
     left: ${props => (props.closed ? "-100%" : "0")};
   }
   a[aria-current="page"] {
-    // color: #C00A0A;
-    border-bottom: 1px solid #C00A0A;
+    border-bottom: 1px solid ${colors.lightTeal};
   }
 `
 
@@ -130,13 +128,13 @@ const StyledLink = styled(Link)`
     width: 0%;
     content: ".";
     color: transparent;
-    background: #C00A0A;
+    background: ${colors.lightTeal};
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: #C00A0A;
+    color: ${colors.lightTeal};
     ::after {
       width: 100%;
     }
@@ -160,6 +158,22 @@ const Header = ({ siteTitle }) => {
     {
       path: "/contact",
       title: "Contact"
+    },
+    {
+      path: "/the-clinic",
+      title: "The Clinic"
+    },
+    {
+      path: "/services",
+      title: "Our Services"
+    },
+    {
+      path: "/meet-the-doctor",
+      title: "Meet The Doctor"
+    },
+    {
+      path: "/new-patient",
+      title: "New Patient Center"
     },
   ]
 
