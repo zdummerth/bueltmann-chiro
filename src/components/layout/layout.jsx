@@ -55,8 +55,6 @@ const ContentWrapper = styled.main`
   position: relative;
   width: 100vw;
   background-color: ${colors.lightGrey};
-  // max-width: 1700px;
-  // margin: 0 auto;
 `
 
 const Footer = styled.footer`
@@ -64,8 +62,8 @@ const Footer = styled.footer`
   justify-content: space-around;
   align-items: center;
   padding: 0 30px;
-  // margin-top: 3vh;
   background-color: ${colors.darkGrey};
+
   @media (max-width: 900px) {
     flex-direction: column;
     p {

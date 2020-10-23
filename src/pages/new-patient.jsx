@@ -6,14 +6,14 @@ import styled from 'styled-components'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
-import { colors } from '../utils/styles'
+import { colors, breakpoints } from '../utils/styles'
 
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: ${colors.lightGrey};
+    background: ${colors.lightGray};
     padding-bottom: 60px;
 `
 
@@ -30,33 +30,61 @@ const Intro = styled.div`
 
 `
 const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   margin-top: 30px;
   width: 100%;
-  max-width: 800px;
+
+  .second-card {
+    // background: ${colors.lightGrey};
+  }
 `
 const Card = styled.div`
-  margin: 10px 0;
+  padding: 2.5rem 0;
+  // display: flex;
+  // justify-content: center;
+  background: ${colors.lightTeal};
+
 
   .gatsby-image-wrapper {
-    margin: 0 auto;
+    width: 100%;
     max-width: 301px;
+    margin: 0 auto;
   }
+
   .text-container {
     text-align: center;
-    padding: 10px 5px;
-    background: white;
-    max-width: 500px;
+    padding: 1rem;
   }
 
   h2 {
     margin-top: 0;
   }
-  @media (min-width: 500px) {
 
+  &.second-card {
+    background: ${colors.lightGrey};
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    justify-content: center;
+
+    .gatsby-image-wrapper {
+      flex-basis: 301px;
+      margin: 0;
     }
+
+    .text-container {
+      text-align: center;
+      padding: 1rem 3rem;
+      flex: 1;
+      max-width: 600px;
+    }
+
+    &.second-card {
+      .gatsby-image-wrapper {
+        order: 2;
+      }
+    }
+  }
 
 `
 
@@ -74,6 +102,7 @@ const ContactLink = styled(Link)`
 
 const OfficeForm = styled.div`
     text-align: center;
+    max-width: 700px;
 `
 
 
@@ -133,9 +162,9 @@ const NewPatientPage = ({data}) => {
                     </p>
                   </div>
                 </Card>
-                <Card>
-                  <Img
-                      fluid={data.threemobile.childImageSharp.fluid}
+                <Card className='second-card'>
+                <Img
+                      fluid={data.threedt.childImageSharp.fluid}
                   />
                   <div className='text-container'>
                     <h2>Payment Options</h2>
@@ -163,7 +192,7 @@ const NewPatientPage = ({data}) => {
                 </Card>
               </CardContainer>
               <OfficeForm>
-                  <div className='text-container'>
+                <div className='text-container'>
                     <h2>Office Forms</h2>
                     <p>
                       Bueltmann Chiropractic offers our patient forms online so they can be completed in the convenience of your 
@@ -175,7 +204,7 @@ const NewPatientPage = ({data}) => {
                       paperwork can be provided for you in the office at the time of your visit.
                     </p>
                   </div>
-                </OfficeForm>
+              </OfficeForm>
             </Container>
         </Layout>
     )
@@ -183,44 +212,16 @@ const NewPatientPage = ({data}) => {
 
 export const query = graphql`
 query {
-  onemobile: file(relativePath: { eq: "newPatient/np-1-mobile.webp" }) {
+  onemobile: file(relativePath: { eq: "newPatient/np-1.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 301) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  twomobile: file(relativePath: { eq: "newPatient/np-2-mobile.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 400) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  threemobile: file(relativePath: { eq: "newPatient/np-3-mobile.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 400) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  onedt: file(relativePath: { eq: "newPatient/np-1-dt.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 400) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  twodt: file(relativePath: { eq: "newPatient/np-2-dt.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 400) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
   threedt: file(relativePath: { eq: "newPatient/np-3-dt.webp" }) {
     childImageSharp {
-      fluid(maxWidth: 400) {
+      fluid(maxWidth: 390) {
         ...GatsbyImageSharpFluid
       }
     }

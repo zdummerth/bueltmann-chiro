@@ -15,9 +15,7 @@ const Container = styled.div`
     background: ${colors.lightGrey};
     padding-bottom: 60px;
 `
-const Title = styled.h1`
-
-`
+const Title = styled.h1``
 
 const ServiceCardContainer = styled.div`
     display: flex;

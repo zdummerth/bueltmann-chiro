@@ -111,6 +111,12 @@ const Hamburger = styled.div`
 `
 const LogoLink = styled(Link)`
   margin-left: 5%;
+  display: flex;
+  align-items: center;
+
+  p {
+    padding-left: 10px;
+  }
 `
 const StyledLink = styled(Link)`
   display: inline-block;
@@ -194,6 +200,9 @@ const Header = ({ siteTitle }) => {
         </Toggle>
         <LogoLink to='/'>
             <Logo />
+            <p>
+              Bueltmann Chiropractic
+            </p>
         </LogoLink>
         <Navbox closed={navbarClosed}>
           <GlobalStyle closed={navbarClosed}/>
