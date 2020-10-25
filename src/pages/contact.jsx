@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import BasicForm from '../components/form'
 
 const BgWrapper = styled.div`
     position: relative;
@@ -43,6 +44,7 @@ const ContactPage = ({data}) => {
                     }}
                 />
                 <Overlay>
+                    <BasicForm />
                     <TextWrapper>
                         <p>(314) 346-6822</p>
                         <p>bueltmannchiropractic@gmail.com</p>
