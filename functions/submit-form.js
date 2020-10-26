@@ -9,9 +9,9 @@ const MESSAGE_ID = 'entry.839337160'
 
 const FORM_ID = '1FAIpQLSe1g0_Akay_Y2_CgvTHzVs29XFUgf_bzlEkQmloReHhzKe-Ew'
 
-// const FormURL = `https://docs.google.com/forms/u/0/d/e/${FORM_ID}/formResponse`
+const FormURL = `https://docs.google.com/forms/u/0/d/e/${FORM_ID}/formResponse`
 
-const FormURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe1g0_Akay_Y2_CgvTHzVs29XFUgf_bzlEkQmloReHhzKe-Ew/formResponse'
+// const FormURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe1g0_Akay_Y2_CgvTHzVs29XFUgf_bzlEkQmloReHhzKe-Ew/formResponse'
 
 
 exports.handler = async event => {
@@ -19,8 +19,6 @@ exports.handler = async event => {
     const body = JSON.parse(event.body)
 
     let formData = new FormData()
-
-    console.log({formData})
 
     formData.append(NAME_ID, body.name)
     formData.append(EMAIL_ID, body.email)

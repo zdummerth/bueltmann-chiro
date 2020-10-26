@@ -1,32 +1,37 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import BasicForm from '../components/form'
 
-const BgWrapper = styled.div`
-    position: relative;
-    color: white;
-`
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,.5);
-`
-const TextWrapper = styled.div`
-    text-align: center;
-    margin: 20vh auto 0;
-    width: 90%;
+import BackgroundSection from '../components/background-section'
 
-    @media (min-width: 500px) {
-        font-size: 1.5rem;;
-      }
+
+import { breakpoints, colors } from '../utils/styles'
+
+
+const Container = styled.div`
+
+  @media (min-width: ${breakpoints.desktop}) {
+
+  }
+`
+
+
+const StyledForm = styled(BasicForm)`
+  margin-bottom: 20px;
+  padding: 1rem;
+`
+
+const TextWrapper = styled.div`
+  text-align: center;
+  background: ${colors.lightTeal};
+  padding: 2rem;
+  @media (min-width: 500px) {
+    }
 
 `
 
@@ -34,37 +39,29 @@ const ContactPage = ({data}) => {
     return (
         <Layout>
             <SEO title='Contact' />
-            <BgWrapper>
-                <Img 
-                    fluid={data.file.childImageSharp.fluid} 
-                    alt={'bone basket background'}
-                    style={{
-                        //Not exactly sure how this works, but this makes the image appear bigger and more center on smaller screens
-                        // paddingTop: '100px',
-                    }}
-                />
-                <Overlay>
-                    <BasicForm />
-                    <TextWrapper>
-                        <p>(314) 346-6822</p>
-                        <p>bueltmannchiropractic@gmail.com</p>
-                    </TextWrapper>
-                </Overlay>
-            </BgWrapper>
+            <Container>
+              <TextWrapper>
+                <h1>Contact Us</h1>
+                <p>4600 S. Lindbergh Suite 2, St. Louis, MO 63127</p>
+                <p>(314) 346-6822</p>
+                <p>bueltmannchiropractic@gmail.com</p>
+              </TextWrapper>
+              <StyledForm />
+            </Container>
         </Layout>
     )
 }
 
 export const query = graphql`
-query {
-  file(relativePath: { eq: "desk.webp" }) {
-    childImageSharp {
-      fluid(maxWidth: 1000) {
-        ...GatsbyImageSharpFluid
+  query {
+    file(relativePath: { eq: "mailboxes.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 2000) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
-}
 `
 
 export default ContactPage

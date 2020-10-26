@@ -200,9 +200,6 @@ const Header = ({ siteTitle }) => {
         </Toggle>
         <LogoLink to='/'>
             <Logo />
-            <p>
-              Bueltmann Chiropractic
-            </p>
         </LogoLink>
         <Navbox closed={navbarClosed}>
           <GlobalStyle closed={navbarClosed}/>

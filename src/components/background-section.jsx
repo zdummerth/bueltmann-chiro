@@ -15,19 +15,22 @@ const Overlay = styled.div`
   height: 100%;
   background: ${props => `rgba(0,0,0,${props.shade})`};
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 `
 
 const BackgroundSection = ({fluid, children, className, shade}) => {
     return (
-        <BgWrapper>
+        <BgWrapper
+            className={className}
+        >
             <Img 
                 fluid={fluid} 
                 alt={'background image of doctor with patient'}
-                className={className}
             />
-            <Overlay shade={shade ? shade : '0'}>
+            <Overlay 
+                shade={shade ? shade : '0'}
+            >
                 {children}
             </Overlay>
         </BgWrapper>

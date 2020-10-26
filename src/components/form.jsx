@@ -14,7 +14,6 @@ const StyledForm = styled(Form)`
     justify-content: space-around;
     height: 80%;
     max-height: 500px;
-    width: 90%;
     max-width: 600px;
     margin: 0 auto;
     font-weight: bold;
@@ -24,11 +23,8 @@ const StyledForm = styled(Form)`
     }
 
     .form-child {
-      width: 90%;
-      background: rgba(0,0,0, 1);
-      border: 1px solid white;
-      color: white;
-      padding: 8px;
+      width: 100%;
+      padding: 8px 0;
       font-weight: bold;
     }
 
@@ -49,23 +45,26 @@ const StyledForm = styled(Form)`
 
     #submit-button {
         font-family: inherit;
-        border: 0;
-        background: ${colors.brand};
-        color: ${colors.lightest};
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 90px;
+        border: 2px solid ${colors.darkGrey};
+        padding: 10px;
+        border-radius: 50px;
+        margin-top: 20px;
+    
+        &:hover {
+            background: ${colors.darkGrey};
+            color: ${colors.lightest};
+        }
     }
 
 `
 
 
-const StyledErrorMessage = styled.div`
+const StyledErrorMessage = styled.span`
   font-size: 12px;
   font-weight: bold;
   color: red;
   width: 400px;
-  margin-top: 0.25rem;
+  margin-left: 1rem;
   &:before {
     content: "❌ ";
     font-size: 10px;
@@ -81,11 +80,14 @@ const MyTextInput = ({ label, ...props }) => {
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}
-      <input {...field} {...props} />
-      </label>
       {meta.touched && meta.error ? (
         <StyledErrorMessage>{meta.error}</StyledErrorMessage>
       ) : null}
+      <input {...field} {...props} />
+      </label>
+      {/* {meta.touched && meta.error ? (
+        <StyledErrorMessage>{meta.error}</StyledErrorMessage>
+      ) : null} */}
     </>
   );
 };
@@ -112,7 +114,7 @@ const ErrorMessage = () => {
         <div className='submit-message'>
             <p>There was an error submitting your message.</p>
             <p>Please refresh the the page and try again or email us at</p>
-            <p>DARKACEAPPAREL@GMAIL.COM</p>
+            <p>bueltmannchiropractic@gmail.com</p>
         </div>
     )
 }
@@ -128,7 +130,7 @@ const SuccessMessage = () => {
 }
 
 
-const BasicForm = () => {
+const BasicForm = ({ className }) => {
     const [ submitted, setSubmitted ] = useState(false)
     const [ isSubmitting, setIsSubmitting ] = useState(false)
     const [ isError, setIsError ] = useState(false)
@@ -178,7 +180,7 @@ const BasicForm = () => {
             resetForm();
         }}
       >
-            <StyledForm>
+            <StyledForm className={className}>
                 {isError ? <ErrorMessage /> : isSubmitting ? <p>Submitting...</p> : submitted ? <SuccessMessage /> 
                     : 
                     <>
