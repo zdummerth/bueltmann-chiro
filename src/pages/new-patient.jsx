@@ -21,6 +21,9 @@ const IntroContainer = styled.div`
 `
 
 const Intro = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
@@ -110,7 +113,7 @@ const NewPatientPage = ({data}) => {
                     chiropractic visit prior to arriving, in the comfort of your own home. If you have any questions 
                     at any time, please don't hesitate to contact us at 314-346-6822!
                   </p>
-                  <InternalLink to='/contact'>Schedule an Appointment</InternalLink>
+                  <InternalLink to='/contact' style={{margin: '10px'}}>Schedule an Appointment</InternalLink>
                 </Intro>
               </IntroContainer>
               <CardContainer>

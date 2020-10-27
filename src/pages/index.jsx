@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { GiCircleClaws } from 'react-icons/gi'
 
 import Layout from "../components/layout/layout"
 import BackgroundSection from "../components/background-section"
@@ -12,11 +13,9 @@ import SEO from "../components/seo"
 import { breakpoints, colors } from '../utils/styles'
 
 
-const Container = styled.div`
-  // width: 100%;
-  // max-width: 1400px;
-  // margin: 0 auto;
-`
+const Container = styled.div``
+
+const Bullet = styled(GiCircleClaws)``
 
 const StyledBG = styled(BackgroundSection)`
   max-width: 1500px;
@@ -74,6 +73,15 @@ const ImageAndTextContainer = styled.div`
     justify-content: center;
     background: ${colors.lightest};
 
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    span {
+      color: ${colors.logoGreen};
+      padding-right: 4px;
+    }
   }
 
   #new-patient {
@@ -143,15 +151,15 @@ const IndexPage = ({data}) => {
                 <div className='text-container'>
                   <p>At Bueltmann Chiropractic, we treat many different conditions, most commonly:</p>
                   <ul>
-                    <li>Headaches & Migraines</li>
-                    <li>Neck Pain</li>
-                    <li>Shoulder Pain</li>
-                    <li>Back Pain</li>
-                    <li>Sciatia</li>
-                    <li>Extremity Problems</li>
-                    <li>Athletic Injuries</li>
-                    <li>Soft Tissue Injuries</li>
-                    <li>Stress Related Conditions</li>
+                    <li><span><Bullet/></span>Headaches & Migraines</li>
+                    <li><span><Bullet/></span>Neck Pain</li>
+                    <li><span><Bullet/></span>Shoulder Pain</li>
+                    <li><span><Bullet/></span>Back Pain</li>
+                    <li><span><Bullet/></span>Sciatia</li>
+                    <li><span><Bullet/></span>Extremity Problems</li>
+                    <li><span><Bullet/></span>Athletic Injuries</li>
+                    <li><span><Bullet/></span>Soft Tissue Injuries</li>
+                    <li><span><Bullet/></span>Stress Related Conditions</li>
                   </ul>
                 </div>
             </ImageAndTextContainer>

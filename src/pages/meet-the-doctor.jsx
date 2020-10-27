@@ -18,14 +18,25 @@ const Container = styled.div`
     padding-bottom: 30px;
     background-color: ${colors.lightGrey};
 `
-const Title = styled.h1``
+const Title = styled.h1`
+    font-weight: normal;
+`
 
-const Subtitle = styled.h2``
+const Subtitle = styled.h2`
+    font-weight: normal;
+`
 
 const ImgContainer = styled.div`
-    width: 50%;
-    max-width: 500px;
-    border-radius: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: ${colors.lightest};
+    padding: 20px 0;
+    .gatsby-image-wrapper {
+        width: 70%;
+        max-width: 500px;
+        border-radius: 50%;
+    }
 `
 
 const TextContainer = styled.div`

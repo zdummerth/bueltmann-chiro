@@ -123,6 +123,7 @@ const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   white-space: nowrap;
+  outline: 0;
   margin: 1rem;
   transition: all 200ms ease-in;
   position: relative;
@@ -135,13 +136,13 @@ const StyledLink = styled(Link)`
     width: 0%;
     content: ".";
     color: transparent;
-    background: ${colors.lightTeal};
+    background: ${colors.logoGreen};
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: ${colors.lightTeal};
+    color: ${colors.logoGreen};
     ::after {
       width: 100%;
     }

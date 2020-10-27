@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { GiCircleClaws } from 'react-icons/gi'
+
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
@@ -15,8 +17,16 @@ const Container = styled.div`
     align-items: center;
     background: ${colors.lightGrey};
     padding-bottom: 60px;
+
+    h3 {
+      font-weight: normal;
+      margin-top: 0;
+    }
 `
-const Title = styled.h1``
+const Title = styled.h1`
+  font-weight: normal;
+  margin-bottom: 0;
+`
 
 const ServiceCardContainer = styled.div`
     display: flex;
@@ -30,13 +40,29 @@ const ServiceCard = styled.div`
     max-width: 500px;
     margin: 15px 5px;
     background: ${colors.lightest};
-    padding: 20px;
+    padding: 0 20px 10px;
+
+    ul {
+      list-style: none;
+      span {
+        color: ${colors.logoGreen};
+        padding-right: 4px;
+      }
+    }
     
 `
 
 const CardTitle = styled.h2`
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 0;
+  font-weight: normal;
+`
+
+const AppointmentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 `
 
 const ServicesPage = ({data}) => {
@@ -62,13 +88,13 @@ const ServicesPage = ({data}) => {
                         </p>
                         <p>The chiropractic services we offer include:</p>
                         <ul>
-                            <li>Diversified-Manual Treatment</li>
-                            <li>Thompson Technique</li>
-                            <li>Cox Flexion-Distraction</li>
-                            <li>Logan Basic Technique</li>
-                            <li>Activator Method</li>
-                            <li>Webster Technique</li>
-                            <li>Graston Technique</li>
+                            <li><span><GiCircleClaws/></span>Diversified-Manual Treatment</li>
+                            <li><span><GiCircleClaws/></span>Thompson Technique</li>
+                            <li><span><GiCircleClaws/></span>Cox Flexion-Distraction</li>
+                            <li><span><GiCircleClaws/></span>Logan Basic Technique</li>
+                            <li><span><GiCircleClaws/></span>Activator Method</li>
+                            <li><span><GiCircleClaws/></span>Webster Technique</li>
+                            <li><span><GiCircleClaws/></span>Graston Technique</li>
                         </ul>
                     </ServiceCard>
                     <ServiceCard>
@@ -146,8 +172,10 @@ const ServicesPage = ({data}) => {
                         </p>
                     </ServiceCard>
                 </ServiceCardContainer>
-                <p>Make an appointment today, and see what makes our patient care one of the best in the nation.</p>
-                <InternalLink to='/contact'>Schedule an Appointment</InternalLink>
+                <AppointmentContainer>
+                  <p>Make an appointment today, and see what makes our patient care one of the best in the nation.</p>
+                  <InternalLink to='/contact'>Schedule an Appointment</InternalLink>
+                </AppointmentContainer>
             </Container>
         </Layout>
     )

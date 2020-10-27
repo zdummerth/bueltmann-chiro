@@ -76,14 +76,24 @@ const ContentWrapper = styled.main`
   & > * {
     flex: 1;
   }
+
+  .full-width-bg {
+    width: 100%;
+    background: ${colors.lightGrey};
+  }
+
+  .center-text {
+    text-align: center;
+  }
 `
 
 const Footer = styled.footer`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 30px;
+  padding: 30px 30px;
   background-color: ${colors.darkGrey};
+  color: ${colors.lightest};
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -110,37 +120,10 @@ const IgIcon = styled(FaInstagram)`
 const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
+  outline: 0;
   white-space: nowrap;
-  color: white;
-  margin: 2vw;
-  transition: all 200ms ease-in;
   position: relative;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 0%;
-    content: ".";
-    color: transparent;
-    background: #C00A0A;
-    height: 1px;
-    transition: all 0.4s ease-in;
-  }
-
-  :hover {
-    color: #C00A0A;
-    ::after {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 20px 0;
-    // font-size: 1.5rem;
-    // z-index: 6;
-  }
+  margin: 6px;
 `
 
 const Layout = ({ children }) => {
@@ -165,7 +148,8 @@ const Layout = ({ children }) => {
         </Motto>
         <ContentWrapper>{children}</ContentWrapper>
         <Footer>
-          <StyledLink as='a' href='mailto:bueltmannchiropractic@gmail.com'>bueltmannchiropractic@gmail.com</StyledLink>
+          {/* <StyledLink as='a' href='mailto:bueltmannchiropractic@gmail.com'>bueltmannchiropractic@gmail.com</StyledLink> */}
+          <StyledLink to='/contact'>Contact Us</StyledLink>
           <IconWrapper>
             <StyledLink as='a' href='https://www.facebook.com/BueltmannChiropractic/' target='_blank' rel="noopener"><FbIcon /></StyledLink>
             <StyledLink as='a' href='https://www.instagram.com/bueltmannchiropractic/' target='_blank' rel="noopener"><IgIcon /></StyledLink>

@@ -15,34 +15,45 @@ const GlobalStyle = createGlobalStyle`
     height: ${props => (props.open ? "100vh" : "")};
   }
 `
-const Section = styled.section`
-background-color: ${colors.lightGrey};
 
-  .our-practice {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    max-width: 400px;
-    margin: 50px auto;
+const Container = styled.div`
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  h1 {
+    margin: 0;
+    padding-top: 10px;
+    font-weight: normal;
+  }
+`
 
-    background-color: ${colors.lightest};
+const ImageAndTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  
 
-    @media (min-width: ${breakpoints.tablet}) {
-      flex-direction: row;
-      max-width: 800px;
-    }
+  & > * {
+    flex: 1;
   }
 
-  .our-practice-text {
+
+  .text-container {
     padding: 1rem;
-    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    background: ${colors.lightest};
   }
 
-  .our-practice-image {
-    flex: 1;
+
+  @media (min-width: ${breakpoints.tablet}) {
+    flex-direction: row;
+    max-width: 950px;
   }
 `
 const OfficeTour = styled.div`
@@ -51,10 +62,6 @@ const OfficeTour = styled.div`
   padding-top: .5rem;
   padding-bottom: 50px;
   margin-top: 1rem;
-
-  h2 {
-    font-size: 2rem;
-  }
 `
 
 const Gallery = styled.div`
@@ -124,36 +131,39 @@ const Clinic = ({ data }) => {
     <Layout>
       <GlobalStyle open={isSlideShowOpen}/>
       <SEO title="Clinic" />
-      <Section>
-        <div className='our-practice'>
-          <Img 
-              fluid={data.patientBack.childImageSharp.fluid} 
-              alt={'background image of doctor with patient'}
-              className='our-practice-image'
-          />
-          <div className='our-practice-text'>
-            <h2>Our Practice</h2>
-            <p>
-              At Bueltmann Chiropractic, we’re committed to providing you and your 
-              loved ones with exceptional care in a compassionate and friendly atmosphere. 
-              Located in Sunset Hills in St. Louis, Bueltmann Chiropractic believes that 
-              our patients deserve the best care, and we make an 
-              effort to make sure you always feel welcome and at ease.
-            </p>
-            <p>
-              Whether you’re coming in for a simple checkup or a more complex treatment regimen, 
-              we have the skills and resources to manage all your health needs. 
-              We can’t wait to help you feel better today.
-            </p>
-          </div>
+      <Container>
+        <div className='full-width-bg center-text'>
+          <h1>The Clinic</h1>
+          <ImageAndTextContainer>
+              <Img 
+                  fluid={data.patientBack.childImageSharp.fluid} 
+                  alt={'background image of doctor with patient'}
+                  className='our-practice-image'
+              />
+              <div className='text-container'>
+                <h2>Our Practice</h2>
+                <p>
+                  At Bueltmann Chiropractic, we’re committed to providing you and your 
+                  loved ones with exceptional care in a compassionate and friendly atmosphere. 
+                  Located in Sunset Hills in St. Louis, Bueltmann Chiropractic believes that 
+                  our patients deserve the best care, and we make an 
+                  effort to make sure you always feel welcome and at ease.
+                </p>
+                <p>
+                  Whether you’re coming in for a simple checkup or a more complex treatment regimen, 
+                  we have the skills and resources to manage all your health needs. 
+                  We can’t wait to help you feel better today.
+                </p>
+              </div>
+          </ImageAndTextContainer>
         </div>
-      </Section>
-      <OfficeTour>
-        <h2>Office Tour</h2>
-        <Gallery>
-          {officeImages}
-        </Gallery>
-      </OfficeTour>
+        <OfficeTour>
+          <h2>Office Tour</h2>
+          <Gallery>
+            {officeImages}
+          </Gallery>
+        </OfficeTour>
+      </Container>
       {isSlideShowOpen ?
         <SlideShow 
           setIsSlideshowOpen={setIsSlideshowOpen}

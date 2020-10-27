@@ -27,14 +27,22 @@ const FormContainer = styled.div`
   align-items: center;
 `
 
-const StyledForm = styled(BasicForm)``
-
 const TextWrapper = styled.div`
-  text-align: center;
+  // text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: ${colors.lightest};
   // padding: 2rem;
-  @media (min-width: 500px) {
-    }
+  h1 {
+    border-bottom: 1px solid ${colors.logoGreen};
+    font-weight: normal;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100%;
+  }
+
 
 `
 
