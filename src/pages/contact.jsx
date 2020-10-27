@@ -1,20 +1,17 @@
 import React from 'react'
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import BasicForm from '../components/form'
 
-import BackgroundSection from '../components/background-section'
-
 
 import { breakpoints, colors } from '../utils/styles'
 
 
 const Container = styled.div`
-
   @media (min-width: ${breakpoints.desktop}) {
     display: flex;
 
@@ -55,7 +52,7 @@ const ContactPage = ({data}) => {
                 <p>(314) 346-6822</p>
               </TextWrapper>
               <FormContainer>
-                <StyledForm />
+                <BasicForm />
               </FormContainer>
             </Container>
         </Layout>

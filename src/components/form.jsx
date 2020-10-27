@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby'
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 
-import { colors } from '../utils/styles';
-
+import InternalLink from './shared/internal-link'
 
 const StyledForm = styled(Form)`
     max-width: 600px;
@@ -31,21 +29,6 @@ const StyledForm = styled(Form)`
         &:before {
           content: "❌ ";
           font-size: 10px;
-        }
-    }
-
-    #submit-button {
-        font-family: inherit;
-        border: 2px solid ${colors.darkGrey};
-        padding: 10px;
-        border-radius: 50px;
-        margin-top: 20px;
-        width: 200px;
-
-    
-        &:hover {
-            background: ${colors.darkGrey};
-            color: ${colors.lightest};
         }
     }
 
@@ -114,7 +97,6 @@ const SuccessMessage = () => {
         <div className='submit-message'>
             <p>Thank you for your message.</p>
             <p>We will get back to you as soon as possible.</p>
-            <Link to='/shop' className='success-link'>Click here to see the shop</Link>
         </div>
     )
 }
@@ -193,7 +175,7 @@ const BasicForm = ({ className }) => {
                           rows='5'
                           cols='50'
                         />
-                        <button type='submit' id='submit-button'>Submit</button>
+                        <InternalLink as='button' type='submit'>Submit</InternalLink>
                     </>
                 }
             </StyledForm>

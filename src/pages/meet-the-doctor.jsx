@@ -1,10 +1,12 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import InternalLink from '../components/shared/internal-link'
+
 
 import { colors } from '../utils/styles'
 
@@ -36,17 +38,7 @@ const TextContainer = styled.div`
     }
 `
 
-const ContactLink = styled(Link)`
-    border: 2px solid ${colors.darkGrey};
-    padding: 10px;
-    border-radius: 50px;
-    margin-top: 20px;
 
-    &:hover {
-        background: ${colors.darkGrey};
-        color: ${colors.lightest};
-    }
-`
 
 const MeetTheDoctorPage = ({data}) => {
     return (
@@ -85,9 +77,9 @@ const MeetTheDoctorPage = ({data}) => {
                          <a href='https://icpa4kids.com/parent-portal/' target='_blank' rel="noreferrer"> International Chiropractic Pediatric Association.</a> 
                     </p>
                 </TextContainer>
-                <ContactLink to='/contact'>
+                <InternalLink to='/contact'>
                         Get In Touch
-                </ContactLink>
+                </InternalLink>
             </Container>
         </Layout>
     )

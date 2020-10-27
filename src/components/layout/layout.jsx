@@ -62,6 +62,8 @@ const Motto = styled.div`
   }
   p {
     font-style: italic;
+    margin: 0;
+    padding-bottom: 10px;
   }
 `
 

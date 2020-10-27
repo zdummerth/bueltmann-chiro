@@ -69,11 +69,10 @@ const Navbox = styled.div`
     position: fixed;
     width: 100%;
     background-color: white;
-    // opacity: .95;
     border-top: 1px solid ${colors.logoGreen};
     transition: all 0.3s ease-in;
     top: 70px;
-    left: ${props => (props.closed ? "-100%" : "0")};
+    right: ${props => (props.closed ? "-100%" : "0")};
   }
   a[aria-current="page"] {
     border-bottom: 1px solid ${colors.logoGreen};
@@ -194,15 +193,15 @@ const Header = ({ siteTitle }) => {
   return (
     <HeaderWrapper>
       <Nav>
+        <LogoLink to='/'>
+            <Logo />
+        </LogoLink>
         <Toggle
             navbarClosed={navbarClosed}
             onClick={() => setNavbarClosed(!navbarClosed)}
           >
           <Hamburger closed={navbarClosed} />
         </Toggle>
-        <LogoLink to='/'>
-            <Logo />
-        </LogoLink>
         <Navbox closed={navbarClosed}>
           <GlobalStyle closed={navbarClosed}/>
           {links}

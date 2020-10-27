@@ -1,10 +1,11 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import InternalLink from '../components/shared/internal-link'
 
 import { colors, breakpoints } from '../utils/styles'
 
@@ -76,17 +77,6 @@ const Card = styled.div`
 
 `
 
-const ContactLink = styled(Link)`
-    border: 2px solid ${colors.darkGrey};
-    padding: 10px;
-    border-radius: 50px;
-    display: block;
-
-    &:hover {
-        background: ${colors.darkGrey};
-        color: ${colors.lightest};
-    }
-`
 
 const OfficeForm = styled.div`
     text-align: center;
@@ -120,7 +110,7 @@ const NewPatientPage = ({data}) => {
                     chiropractic visit prior to arriving, in the comfort of your own home. If you have any questions 
                     at any time, please don't hesitate to contact us at 314-346-6822!
                   </p>
-                  <ContactLink to='/contact'>Schedule an Appointment</ContactLink>
+                  <InternalLink to='/contact'>Schedule an Appointment</InternalLink>
                 </Intro>
               </IntroContainer>
               <CardContainer>

@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
 import Layout from "../components/layout/layout"
 import BackgroundSection from "../components/background-section"
+import InternalLink from '../components/shared/internal-link'
 
 import SEO from "../components/seo"
 
@@ -17,9 +18,6 @@ const Container = styled.div`
   // margin: 0 auto;
 `
 
-const BGContainer = styled.div`
-  background: ${colors.lightGrey};
-`
 const StyledBG = styled(BackgroundSection)`
   max-width: 1500px;
   margin: 0 auto;
@@ -51,48 +49,51 @@ const Description = styled.div`
     padding: 5rem 0;
   }
 `
-const ConditionsContainer = styled.div`
+const ColorBackground = styled.div`
   background: ${colors.lightGrey};
 `
-const ConditionsTreated = styled.div`
+const ImageAndTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
   max-width: 400px;
   margin: 0 auto;
   padding: 3rem 0;
+  
 
   & > * {
     flex: 1;
   }
 
-  #conditions-text {
+
+  .text-container {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     background: ${colors.lightest};
+
   }
 
-  #text-container {
-    padding: 1rem;
+  #new-patient {
+    font-size: 2rem;
+  }
+
+  #second-item {
+    background: ${colors.lightGrey};
   }
 
   @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
     max-width: 950px;
-  }
-`
 
-const ContactLink = styled(Link)`
-    border: 2px solid ${colors.darkGrey};
-    padding: 10px;
-    border-radius: 50px;
-    margin-top: 20px;
-
-    &:hover {
-        background: ${colors.darkGrey};
-        color: ${colors.lightest};
+    &.second {
+      .gatsby-image-wrapper {
+        order: 2;
+      }
     }
+  }
 `
 
 const IndexPage = ({data}) => {
@@ -101,7 +102,7 @@ const IndexPage = ({data}) => {
       <SEO title="Home" />
       <Layout>
         <Container>
-          <BGContainer>
+          <ColorBackground>
             <StyledBG
                 fluid={data.main.childImageSharp.fluid}
                 shade='.5'
@@ -112,7 +113,7 @@ const IndexPage = ({data}) => {
                   <h2>CHIROPRACTIC</h2>
               </WelcomeTextContainer>
             </StyledBG>
-          </BGContainer>
+          </ColorBackground>
           <Description>
             <div id='container'>
               <p>
@@ -133,14 +134,13 @@ const IndexPage = ({data}) => {
               </p>
             </div>
           </Description>
-          <ConditionsContainer>
-            <ConditionsTreated>
+          <ColorBackground>
+            <ImageAndTextContainer>
             <Img 
                 fluid={data.patient.childImageSharp.fluid}
                 alt='Patient with doctor'
               />
-              <div id='conditions-text'>
-                <div id='text-container'>
+                <div className='text-container'>
                   <p>At Bueltmann Chiropractic, we treat many different conditions, most commonly:</p>
                   <ul>
                     <li>Headaches & Migraines</li>
@@ -154,23 +154,20 @@ const IndexPage = ({data}) => {
                     <li>Stress Related Conditions</li>
                   </ul>
                 </div>
-              </div>
-            </ConditionsTreated>
-          </ConditionsContainer>
-          <ConditionsTreated>
+            </ImageAndTextContainer>
+          </ColorBackground>
+          <ImageAndTextContainer className='second'>
             <Img 
                 fluid={data.clipboard.childImageSharp.fluid}
                 alt='Patient with doctor'
               />
-              <div id='conditions-text'>
-                <div id='text-container'>
-                  <p>New Patient?</p>
-                  <ContactLink to='/new-patient'>
-                    Learn More
-                  </ContactLink>
-                </div>
-              </div>
-            </ConditionsTreated>
+            <div className='text-container' id='second-item'>
+              <p id='new-patient'>New Patient?</p>
+              <InternalLink to='/new-patient'>
+                Learn More
+              </InternalLink>
+            </div>
+            </ImageAndTextContainer>
         </Container>
       </Layout>
     </>

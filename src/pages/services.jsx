@@ -1,10 +1,11 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import InternalLink from '../components/shared/internal-link'
 
 import { colors } from '../utils/styles'
 
@@ -36,17 +37,6 @@ const ServiceCard = styled.div`
 const CardTitle = styled.h2`
     text-align: center;
     padding: 20px;
-`
-
-const ScheduleLink = styled(Link)`
-    border: 2px solid ${colors.darkGrey};
-    padding: 10px;
-    border-radius: 50px;
-
-    &:hover {
-        background: ${colors.darkGrey};
-        color: ${colors.lightest};
-    }
 `
 
 const ServicesPage = ({data}) => {
@@ -157,7 +147,7 @@ const ServicesPage = ({data}) => {
                     </ServiceCard>
                 </ServiceCardContainer>
                 <p>Make an appointment today, and see what makes our patient care one of the best in the nation.</p>
-                <ScheduleLink to='/contact'>Schedule an Appointment</ScheduleLink>
+                <InternalLink to='/contact'>Schedule an Appointment</InternalLink>
             </Container>
         </Layout>
     )
