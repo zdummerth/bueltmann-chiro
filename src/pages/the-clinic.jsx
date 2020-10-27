@@ -16,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 const Section = styled.section`
+background-color: ${colors.lightGrey};
+
   .our-practice {
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@ const Section = styled.section`
     max-width: 400px;
     margin: 50px auto;
 
-    background-color: ${colors.lightGrey};
+    background-color: ${colors.lightest};
 
     @media (min-width: ${breakpoints.tablet}) {
       flex-direction: row;
@@ -45,7 +47,7 @@ const Section = styled.section`
 `
 const OfficeTour = styled.div`
   text-align: center;
-  background: ${colors.lightTeal};
+  background: ${colors.lightest};
   padding-top: .5rem;
   padding-bottom: 50px;
   margin-top: 1rem;

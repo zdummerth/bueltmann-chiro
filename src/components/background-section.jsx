@@ -15,8 +15,8 @@ const Overlay = styled.div`
   height: 100%;
   background: ${props => `rgba(0,0,0,${props.shade})`};
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 `
 
 const BackgroundSection = ({fluid, children, className, shade}) => {

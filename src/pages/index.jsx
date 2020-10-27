@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
@@ -12,7 +12,17 @@ import { breakpoints, colors } from '../utils/styles'
 
 
 const Container = styled.div`
-  width: 100%;
+  // width: 100%;
+  // max-width: 1400px;
+  // margin: 0 auto;
+`
+
+const BGContainer = styled.div`
+  background: ${colors.lightGrey};
+`
+const StyledBG = styled(BackgroundSection)`
+  max-width: 1500px;
+  margin: 0 auto;
 `
 
 const WelcomeTextContainer = styled.div`
@@ -23,7 +33,7 @@ const WelcomeTextContainer = styled.div`
   }
 `
 const Description = styled.div`
-  background: ${colors.lightTeal};
+  background: ${colors.lightest};
   padding: 2rem 0;
 
   #container {
@@ -41,10 +51,13 @@ const Description = styled.div`
     padding: 5rem 0;
   }
 `
+const ConditionsContainer = styled.div`
+  background: ${colors.lightGrey};
+`
 const ConditionsTreated = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   max-width: 400px;
   margin: 0 auto;
   padding: 3rem 0;
@@ -57,38 +70,29 @@ const ConditionsTreated = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: ${colors.lightGrey};
+    background: ${colors.lightest};
   }
 
   #text-container {
-    width: 85%;
-    margin: 0 auto;
+    padding: 1rem;
   }
 
   @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
-    width: 90%;
     max-width: 950px;
   }
 `
 
-const OfficeHours = styled.div`
-  background-color: white;
-  padding: 2rem;
-  text-align: center;
+const ContactLink = styled(Link)`
+    border: 2px solid ${colors.darkGrey};
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
 
-  p {
-    margin: 0;
-  }
-
-  #first {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  @media (min-width: ${breakpoints.tablet}) {
-    padding: 3rem;
-  }
+    &:hover {
+        background: ${colors.darkGrey};
+        color: ${colors.lightest};
+    }
 `
 
 const IndexPage = ({data}) => {
@@ -97,16 +101,18 @@ const IndexPage = ({data}) => {
       <SEO title="Home" />
       <Layout>
         <Container>
-          <BackgroundSection
-              fluid={data.main.childImageSharp.fluid}
-              shade='.5'
-            >
-            <WelcomeTextContainer>
-                <h2>WELCOME TO</h2>
-                <h2>BUELTMANN</h2>
-                <h2>CHIROPRACTIC</h2>
-            </WelcomeTextContainer>
-          </BackgroundSection>
+          <BGContainer>
+            <StyledBG
+                fluid={data.main.childImageSharp.fluid}
+                shade='.5'
+              >
+              <WelcomeTextContainer>
+                  <h2>WELCOME TO</h2>
+                  <h2>BUELTMANN</h2>
+                  <h2>CHIROPRACTIC</h2>
+              </WelcomeTextContainer>
+            </StyledBG>
+          </BGContainer>
           <Description>
             <div id='container'>
               <p>
@@ -127,40 +133,44 @@ const IndexPage = ({data}) => {
               </p>
             </div>
           </Description>
-          <ConditionsTreated>
-            <div id='conditions-text'>
-              <div id='text-container'>
-                <p>At Bueltmann Chiropractic, we treat many different conditions, most commonly:</p>
-                <ul>
-                  <li>Headaches & Migraines</li>
-                  <li>Neck Pain</li>
-                  <li>Shoulder Pain</li>
-                  <li>Back Pain</li>
-                  <li>Sciatia</li>
-                  <li>Extremity Problems</li>
-                  <li>Athletic Injuries</li>
-                  <li>Soft Tissue Injuries</li>
-                  <li>Stress Related Conditions</li>
-                </ul>
-              </div>
-            </div>
+          <ConditionsContainer>
+            <ConditionsTreated>
             <Img 
-              fluid={data.patient.childImageSharp.fluid}
-              alt='Patient with doctor'
-              imgStyle={{
-                objectFit: 'contain', 
-              }}
-            />
-          </ConditionsTreated>
-          <BackgroundSection
-            fluid={data.desk.childImageSharp.fluid}
-          >
-            <OfficeHours>
-              <p id='first'>Office Hours</p>
-              <p>Hours by appointment only.</p>
-              <p>Please call to schedule</p>
-            </OfficeHours>
-          </BackgroundSection>
+                fluid={data.patient.childImageSharp.fluid}
+                alt='Patient with doctor'
+              />
+              <div id='conditions-text'>
+                <div id='text-container'>
+                  <p>At Bueltmann Chiropractic, we treat many different conditions, most commonly:</p>
+                  <ul>
+                    <li>Headaches & Migraines</li>
+                    <li>Neck Pain</li>
+                    <li>Shoulder Pain</li>
+                    <li>Back Pain</li>
+                    <li>Sciatia</li>
+                    <li>Extremity Problems</li>
+                    <li>Athletic Injuries</li>
+                    <li>Soft Tissue Injuries</li>
+                    <li>Stress Related Conditions</li>
+                  </ul>
+                </div>
+              </div>
+            </ConditionsTreated>
+          </ConditionsContainer>
+          <ConditionsTreated>
+            <Img 
+                fluid={data.clipboard.childImageSharp.fluid}
+                alt='Patient with doctor'
+              />
+              <div id='conditions-text'>
+                <div id='text-container'>
+                  <p>New Patient?</p>
+                  <ContactLink to='/new-patient'>
+                    Learn More
+                  </ContactLink>
+                </div>
+              </div>
+            </ConditionsTreated>
         </Container>
       </Layout>
     </>
@@ -183,7 +193,7 @@ export const query = graphql`
         }
       }
     }
-    desk: file(relativePath: { eq: "desk.webp" }) {
+    clipboard: file(relativePath: { eq: "clipboard.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid

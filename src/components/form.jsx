@@ -8,15 +8,9 @@ import { colors } from '../utils/styles';
 
 
 const StyledForm = styled(Form)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 80%;
-    max-height: 500px;
     max-width: 600px;
     margin: 0 auto;
-    font-weight: bold;
+    padding: 1rem 0;
 
     .success-link {
       margin-top: 10px;
@@ -25,13 +19,10 @@ const StyledForm = styled(Form)`
     .form-child {
       width: 100%;
       padding: 8px 0;
-      font-weight: bold;
+      margin: 7px 0;
     }
 
-    label {
-        width: 100%;
-        margin-bottom: 5px;
-    }
+    label {}
 
     .error {
         font-size: 12px;
@@ -49,6 +40,8 @@ const StyledForm = styled(Form)`
         padding: 10px;
         border-radius: 50px;
         margin-top: 20px;
+        width: 200px;
+
     
         &:hover {
             background: ${colors.darkGrey};
@@ -85,9 +78,6 @@ const MyTextInput = ({ label, ...props }) => {
       ) : null}
       <input {...field} {...props} />
       </label>
-      {/* {meta.touched && meta.error ? (
-        <StyledErrorMessage>{meta.error}</StyledErrorMessage>
-      ) : null} */}
     </>
   );
 };
@@ -99,11 +89,11 @@ const MyTextArea = ({ label, ...props }) => {
     return (
       <>
         <label htmlFor={props.id || props.name}>{label}
-        <textarea {...field} {...props} />
-        </label>
         {meta.touched && meta.error ? (
             <StyledErrorMessage>{meta.error}</StyledErrorMessage>
         ) : null}
+        <textarea {...field} {...props} />
+        </label>
       </>
     );
   };

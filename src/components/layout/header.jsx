@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
 
 const HeaderWrapper = styled.header`
   padding: 0 1rem;
+  border-bottom: 1px solid ${colors.logoGreen};
+
   @media (min-width: 900px) {
     font-size: .9rem;
   }
@@ -66,20 +68,20 @@ const Navbox = styled.div`
     justify-content: flex-start;
     position: fixed;
     width: 100%;
-    background-color: #020202;
-    opacity: .95;
-    // border-top: 1px solid ${colors.lightTeal};
+    background-color: white;
+    // opacity: .95;
+    border-top: 1px solid ${colors.logoGreen};
     transition: all 0.3s ease-in;
     top: 70px;
     left: ${props => (props.closed ? "-100%" : "0")};
   }
   a[aria-current="page"] {
-    border-bottom: 1px solid ${colors.lightTeal};
+    border-bottom: 1px solid ${colors.logoGreen};
   }
 `
 
 const Hamburger = styled.div`
-  background-color: #C00A0A;
+  background-color: ${colors.logoGreen};
   width: 30px;
   height: 3px;
   transition: all .3s linear;
@@ -91,7 +93,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #C00A0A;
+    background-color: ${colors.logoGreen};
     content: "";
     position: absolute;
     transition: all 0.3s linear;

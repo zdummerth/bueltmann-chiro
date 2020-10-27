@@ -9,8 +9,10 @@
  */
 export const colors = {
   lightTeal: 'rgba(0,128,128,.2)',
-  lightGrey: 'rgba(128,128,128,.08)',
+  lightGrey: 'rgba(128,128,128,.1)',
   darkGrey: 'rgba(128,128,128,.8)',
+  logoGreen: '#159c52',
+  lightLogoGreen: 'rgba(21, 156, 82, .2)',
   lightest: '#ffffff',
   darkest: '#4d4058',
   text: '#333333',

@@ -50,11 +50,30 @@ const Wrapper = styled.div`
   overflow: hidden;
 `
 
+const Motto = styled.div`
+  text-align: center;
+  padding: 0 .5rem;
+  // background-color: ${colors.lightLogoGreen};
+  h4 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 10px;
+  }
+  p {
+    font-style: italic;
+  }
+`
+
 const ContentWrapper = styled.main`
   flex: 1;
   position: relative;
-  width: 100vw;
-  background-color: ${colors.lightGrey};
+  display: flex;
+  flex-direction: column;
+  
+  & > * {
+    flex: 1;
+  }
 `
 
 const Footer = styled.footer`
@@ -71,13 +90,8 @@ const Footer = styled.footer`
     }
   }
 `
-const IconWrapper = styled.div`
-  // display: flex;
+const IconWrapper = styled.div``
 
-  @media (max-width: 900px) {
-    // margin-top: 2rem;
-  }
-`
 const FbIcon = styled(FaFacebookF)`
   font-size: 22px;
   @media (max-width: 900px) {
@@ -143,6 +157,10 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Wrapper>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <Motto>
+          <h4>Bueltmann Chiropractic</h4>
+          <p>Relieve Pain - Restore Function - Create Wellness</p>
+        </Motto>
         <ContentWrapper>{children}</ContentWrapper>
         <Footer>
           <StyledLink as='a' href='mailto:bueltmannchiropractic@gmail.com'>bueltmannchiropractic@gmail.com</StyledLink>

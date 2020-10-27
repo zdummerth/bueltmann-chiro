@@ -10,38 +10,26 @@ import { colors, breakpoints } from '../utils/styles'
 
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: ${colors.lightGray};
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 `
 
-const Title = styled.h1`
 
+const IntroContainer = styled.div`
+  background: ${colors.lightGrey};
+  padding: 20px 10px;
 `
 
 const Intro = styled.div`
   max-width: 800px;
   text-align: center;
-  margin-top: 25px;
-  padding-right: 15px;
-  padding-left: 15px;
-
+  margin: 0 auto;
 `
 const CardContainer = styled.div`
   margin-top: 30px;
-  width: 100%;
-
-  .second-card {
-    // background: ${colors.lightGrey};
-  }
 `
 const Card = styled.div`
   padding: 2.5rem 0;
-  // display: flex;
-  // justify-content: center;
-  background: ${colors.lightTeal};
+  background: ${colors.lightest};
 
 
   .gatsby-image-wrapper {
@@ -92,7 +80,7 @@ const ContactLink = styled(Link)`
     border: 2px solid ${colors.darkGrey};
     padding: 10px;
     border-radius: 50px;
-    margin-top: 20px;
+    display: block;
 
     &:hover {
         background: ${colors.darkGrey};
@@ -103,6 +91,7 @@ const ContactLink = styled(Link)`
 const OfficeForm = styled.div`
     text-align: center;
     max-width: 700px;
+    margin: 0 auto;
 `
 
 
@@ -113,25 +102,27 @@ const NewPatientPage = ({data}) => {
         <Layout>
             <SEO title='New Patient' />
             <Container>
-              <Title>New Patient Center</Title>
-              <Intro>
-                <p>
-                  We understand that arriving at a chiropractic office for the first time can be nerve racking. 
-                  If you've never experienced chiropractic care before, you may not know what to expect when you 
-                  come to our office for the first time. Filling out paperwork, learning new faces, and getting 
-                  to know your way around the office can be an overwhelming experience.
-                </p>
-                <p>
-                  That's why at Bueltmann Chiropractic, our aim is to remove any unnecessary stress or tension 
-                  and make you feel comfortable during your visit with Dr. Bueltmann.
-                </p>
-                <p>
-                  In this area of the website, you will be able to take care of the items necessary for your 
-                  chiropractic visit prior to arriving, in the comfort of your own home. If you have any questions 
-                  at any time, please don't hesitate to contact us at 314-346-6822!
-                </p>
-              </Intro>
-              <ContactLink to='/contact'>Schedule an Appointment</ContactLink>
+              <IntroContainer>
+                <Intro>
+                  <h1>New Patient Center</h1>
+                  <p>
+                    We understand that arriving at a chiropractic office for the first time can be nerve racking. 
+                    If you've never experienced chiropractic care before, you may not know what to expect when you 
+                    come to our office for the first time. Filling out paperwork, learning new faces, and getting 
+                    to know your way around the office can be an overwhelming experience.
+                  </p>
+                  <p>
+                    That's why at Bueltmann Chiropractic, our aim is to remove any unnecessary stress or tension 
+                    and make you feel comfortable during your visit with Dr. Bueltmann.
+                  </p>
+                  <p>
+                    In this area of the website, you will be able to take care of the items necessary for your 
+                    chiropractic visit prior to arriving, in the comfort of your own home. If you have any questions 
+                    at any time, please don't hesitate to contact us at 314-346-6822!
+                  </p>
+                  <ContactLink to='/contact'>Schedule an Appointment</ContactLink>
+                </Intro>
+              </IntroContainer>
               <CardContainer>
                 <Card>
                   <Img

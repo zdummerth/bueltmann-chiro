@@ -16,20 +16,26 @@ import { breakpoints, colors } from '../utils/styles'
 const Container = styled.div`
 
   @media (min-width: ${breakpoints.desktop}) {
+    display: flex;
 
+    & > * {
+      flex: 1;
+    }
   }
 `
-
-
-const StyledForm = styled(BasicForm)`
-  margin-bottom: 20px;
-  padding: 1rem;
+const FormContainer = styled.div`
+  background: ${colors.lightGrey};
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
 `
+
+const StyledForm = styled(BasicForm)``
 
 const TextWrapper = styled.div`
   text-align: center;
-  background: ${colors.lightTeal};
-  padding: 2rem;
+  background: ${colors.lightest};
+  // padding: 2rem;
   @media (min-width: 500px) {
     }
 
@@ -41,12 +47,16 @@ const ContactPage = ({data}) => {
             <SEO title='Contact' />
             <Container>
               <TextWrapper>
+                <Img 
+                  fluid={data.file.childImageSharp.fluid}
+                  />
                 <h1>Contact Us</h1>
                 <p>4600 S. Lindbergh Suite 2, St. Louis, MO 63127</p>
                 <p>(314) 346-6822</p>
-                <p>bueltmannchiropractic@gmail.com</p>
               </TextWrapper>
-              <StyledForm />
+              <FormContainer>
+                <StyledForm />
+              </FormContainer>
             </Container>
         </Layout>
     )

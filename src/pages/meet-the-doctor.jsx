@@ -14,6 +14,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
+    background-color: ${colors.lightGrey};
 `
 const Title = styled.h1``
 
