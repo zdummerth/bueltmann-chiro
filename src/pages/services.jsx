@@ -19,12 +19,10 @@ const Container = styled.div`
     padding-bottom: 60px;
 
     h3 {
-      font-weight: normal;
       margin-top: 0;
     }
 `
 const Title = styled.h1`
-  font-weight: normal;
   margin-bottom: 0;
 `
 
@@ -55,7 +53,6 @@ const ServiceCard = styled.div`
 const CardTitle = styled.h2`
   text-align: center;
   padding: 0;
-  font-weight: normal;
 `
 
 const AppointmentContainer = styled.div`
@@ -65,7 +62,7 @@ const AppointmentContainer = styled.div`
   width: 90%;
 `
 
-const ServicesPage = ({data}) => {
+const ServicesPage = ({ data }) => {
     return (
         <Layout>
             <SEO title='Services' />

@@ -61,7 +61,7 @@ const ImageAndTextContainer = styled.div`
   
 
   & > * {
-    flex: 1;
+    flex: 50%;
   }
 
 

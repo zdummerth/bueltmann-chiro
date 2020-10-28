@@ -28,15 +28,13 @@ const FormContainer = styled.div`
 `
 
 const TextWrapper = styled.div`
-  // text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: ${colors.lightest};
-  // padding: 2rem;
+  
   h1 {
     border-bottom: 1px solid ${colors.logoGreen};
-    font-weight: normal;
   }
 
   .gatsby-image-wrapper {

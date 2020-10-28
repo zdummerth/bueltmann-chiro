@@ -37,7 +37,6 @@ const StyledForm = styled(Form)`
 
 const StyledErrorMessage = styled.span`
   font-size: 12px;
-  font-weight: bold;
   color: red;
   width: 400px;
   margin-left: 1rem;

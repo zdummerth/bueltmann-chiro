@@ -17,13 +17,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   h1 {
     margin: 0;
     padding-top: 10px;
-    font-weight: normal;
   }
 `
 

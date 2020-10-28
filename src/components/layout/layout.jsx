@@ -38,6 +38,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -53,13 +57,14 @@ const Wrapper = styled.div`
 const Motto = styled.div`
   text-align: center;
   padding: 0 .5rem;
-  // background-color: ${colors.lightLogoGreen};
+  
   h4 {
     font-weight: normal;
     font-size: 1.5rem;
     margin: 0;
     padding: 10px;
   }
+
   p {
     font-style: italic;
     margin: 0;
