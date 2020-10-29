@@ -6,6 +6,9 @@ import styled from 'styled-components';
 import InternalLink from './shared/internal-link'
 
 const StyledForm = styled(Form)`
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem 0;
@@ -21,7 +24,9 @@ const StyledForm = styled(Form)`
       border: none;
     }
 
-    label {}
+    .submit-button {
+      align-self: center;
+    }
 
     .error {
         font-size: 12px;
@@ -175,7 +180,7 @@ const BasicForm = ({ className }) => {
                           rows='5'
                           cols='50'
                         />
-                        <InternalLink as='button' type='submit'>Submit</InternalLink>
+                        <InternalLink as='button' type='submit' className='submit-button'>Submit</InternalLink>
                     </>
                 }
             </StyledForm>
