@@ -9,9 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import { colors } from '../../utils/styles'
+import { colors, breakpoints } from '../../utils/styles'
 
+import SocialLinks from '../shared/social-links'
 import Header from "./header"
 
 
@@ -96,32 +96,37 @@ const Footer = styled.footer`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   padding: 30px 30px;
+  text-align: center;
+
   background-color: ${colors.darkGrey};
   color: ${colors.lightest};
 
-  @media (max-width: 900px) {
+  @media (max-width: ${breakpoints.desktop}) {
     flex-direction: column;
     p {
       margin-bottom: 0;
     }
   }
 `
-const IconWrapper = styled.div``
-
-const FbIcon = styled(FaFacebookF)`
-  font-size: 22px;
-  @media (max-width: 900px) {
-    font-size: 28px;
+const StyledSocialLinks = styled(SocialLinks)`
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`
+const PhoneNumber = styled.div`
+  text-align: center;
+  p {
+    margin-top: 0;
   }
 `
-const IgIcon = styled(FaInstagram)`
-  font-size: 22px;
-  @media (max-width: 900px) {
-    font-size: 28px;
+const Address = styled.div`
+  text-align: center;
+  p {
+    margin-top: 0;
   }
 `
-
 const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
@@ -153,12 +158,16 @@ const Layout = ({ children }) => {
         </Motto>
         <ContentWrapper>{children}</ContentWrapper>
         <Footer>
-          {/* <StyledLink as='a' href='mailto:bueltmannchiropractic@gmail.com'>bueltmannchiropractic@gmail.com</StyledLink> */}
-          <StyledLink to='/contact'>Contact Us</StyledLink>
-          <IconWrapper>
-            <StyledLink as='a' href='https://www.facebook.com/BueltmannChiropractic/' target='_blank' rel="noopener"><FbIcon /></StyledLink>
-            <StyledLink as='a' href='https://www.instagram.com/bueltmannchiropractic/' target='_blank' rel="noopener"><IgIcon /></StyledLink>
-          </IconWrapper>
+          <PhoneNumber>
+            <p>Bueltmann Chiropractic</p>
+            <p>(314) 346-6822</p>
+            <StyledLink to='/contact'>Contact Us</StyledLink>
+          </PhoneNumber>
+          <StyledSocialLinks />
+          <Address>
+            <p>4600 S. Lindbergh, Suite 2</p>
+            <p>St. Louis, MO 63127</p>
+          </Address>
         </Footer>
       </Wrapper>
     </>

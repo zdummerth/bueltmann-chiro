@@ -26,7 +26,7 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `bueltmann-chiropractic`,
-                short_name: `dark`,
+                short_name: `bueltmann-chiro`,
                 start_url: `/`,
                 background_color: `#663399`,
                 theme_color: `#663399`,

@@ -18,6 +18,7 @@ const StyledForm = styled(Form)`
       width: 100%;
       padding: 8px 0;
       margin: 7px 0;
+      border: none;
     }
 
     label {}
