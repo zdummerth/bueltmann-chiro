@@ -65,8 +65,10 @@ const Gallery = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   width: 90%;
-  max-width: 1000px;
+  max-width: 950px;
   margin: 0 auto;
+  background: ${colors.lightGrey};
+  padding: 2rem 0;
 
   & > * {
     width: 150px;

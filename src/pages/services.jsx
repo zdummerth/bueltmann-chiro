@@ -39,9 +39,11 @@ const ServiceCard = styled.div`
     margin: 15px 5px;
     background: ${colors.lightest};
     padding: 0 20px 10px;
+    text-align: center;
 
     ul {
       list-style: none;
+      text-align: left;
       span {
         color: ${colors.logoGreen};
         padding-right: 4px;

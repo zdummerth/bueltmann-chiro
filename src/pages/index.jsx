@@ -32,6 +32,7 @@ const WelcomeTextContainer = styled.div`
 const Description = styled.div`
   background: ${colors.lightest};
   padding: 2rem 0;
+  text-align: center;
 
   #container {
     width: 90%;
