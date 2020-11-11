@@ -203,7 +203,7 @@ query {
       }
     }
   }
-  threedt: file(relativePath: { eq: "newPatient/np-3-dt.webp" }) {
+  threedt: file(relativePath: { eq: "newPatient/np-2.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 390) {
         ...GatsbyImageSharpFluid

@@ -182,42 +182,42 @@ const ServicesPage = ({ data }) => {
 
 export const query = graphql`
 query {
-  chiro: file(relativePath: { eq: "services/chiro-care.webp" }) {
+  chiro: file(relativePath: { eq: "services/chiro-care.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  pregnancy: file(relativePath: { eq: "services/pregnancy.webp" }) {
+  pregnancy: file(relativePath: { eq: "services/pregnancy.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  triggerPoint: file(relativePath: { eq: "services/trigger-point.webp" }) {
+  triggerPoint: file(relativePath: { eq: "services/trigger-point.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  exercises: file(relativePath: { eq: "services/exercises.webp" }) {
+  exercises: file(relativePath: { eq: "services/exercises.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  lifestyle: file(relativePath: { eq: "services/lifestyle.webp" }) {
+  lifestyle: file(relativePath: { eq: "services/lifestyle.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid
       }
     }
   }
-  physicals: file(relativePath: { eq: "services/physicals.webp" }) {
+  physicals: file(relativePath: { eq: "services/physicals.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 500) {
         ...GatsbyImageSharpFluid

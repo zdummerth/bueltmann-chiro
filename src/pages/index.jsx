@@ -185,14 +185,14 @@ const IndexPage = ({data}) => {
 
 export const query = graphql`
   query {
-    main: file(relativePath: { eq: "main-image.webp" }) {
+    main: file(relativePath: { eq: "main-image.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    patient: file(relativePath: { eq: "patient.webp" }) {
+    patient: file(relativePath: { eq: "patient.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid

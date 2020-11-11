@@ -174,7 +174,7 @@ const Clinic = ({ data }) => {
 
 export const query = graphql`
 query {
-  patientBack: file(relativePath: { eq: "patient-back.webp" }) {
+  patientBack: file(relativePath: { eq: "patient-back.jpg" }) {
     childImageSharp {
       fluid(maxWidth: 1200) {
         ...GatsbyImageSharpFluid
