@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
@@ -13,6 +13,9 @@ import { colors, breakpoints } from '../../utils/styles'
 
 import SocialLinks from '../shared/social-links'
 import Header from "./header"
+
+import { dimensions } from '../../utils/styles';
+
 
 
 import 'normalize.css';
@@ -136,6 +139,14 @@ const StyledLink = styled(Link)`
   margin: 6px;
 `
 
+// When header is fixed, it's removed from doc flow
+// This offsets that
+const FixedNavbarMargin = styled.div`
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-top: ${dimensions.headerHeight};
+  }
+`
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -147,11 +158,18 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [navbarClosed, setNavbarClosed] = useState(true);
+
+
   return (
     <>
       <GlobalStyle />
       <Wrapper>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header 
+          siteTitle={data.site.siteMetadata.title} 
+          navbarClosed={navbarClosed}
+          setNavbarClosed={setNavbarClosed}/>
+          <FixedNavbarMargin />
         <Motto>
           <h4>Bueltmann Chiropractic</h4>
           <p>Relieve Pain - Restore Function - Create Wellness</p>

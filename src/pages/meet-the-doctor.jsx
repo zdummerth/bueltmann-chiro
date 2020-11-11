@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import InternalLink from '../components/shared/internal-link'
 
 
-import { colors, breakpoints } from '../utils/styles'
+import { colors } from '../utils/styles'
 
 
 const Container = styled.div`

@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import styled, { createGlobalStyle } from "styled-components"
-import { colors } from '../../utils/styles'
+import { colors, dimensions, breakpoints } from '../../utils/styles'
 
 
 import Logo from "./logo"
@@ -19,17 +19,24 @@ const GlobalStyle = createGlobalStyle`
 const HeaderWrapper = styled.header`
   padding: 0 1rem;
   border-bottom: 1px solid ${colors.logoGreen};
+  text-transform: uppercase;
+  z-index: 50;
+  background: ${colors.lightest};
+  font-size: .9rem;
 
-  @media (min-width: 900px) {
-    font-size: .9rem;
-  }
-  @media (min-width: 1000px) {
+  @media (max-width: ${breakpoints.desktop}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
+
     font-size: 1rem;
   }
 `
 
 const Nav = styled.nav`
-  height: 70px;
+  height: ${dimensions.headerHeight};
   width: 100%;
   display: flex;
   position: relative;
@@ -38,13 +45,13 @@ const Nav = styled.nav`
   z-index: 50;
   align-items: center;
 
-  @media (max-width: 768px) {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    left: 0;
-  }
+  // @media (max-width: ${breakpoints.desktop}) {
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   left: 0;
+  // }
 `
 
 const Toggle = styled.div`
@@ -156,7 +163,7 @@ const StyledLink = styled(Link)`
 `
 
 
-const Header = ({ siteTitle }) => {
+const Header = ({ navbarClosed, setNavbarClosed }) => {
 
   const MenuItems = [
     {
@@ -185,7 +192,7 @@ const Header = ({ siteTitle }) => {
     },
   ]
 
-  const [navbarClosed, setNavbarClosed] = useState(true);
+  // const [navbarClosed, setNavbarClosed] = useState(true);
   
   const links = MenuItems.map((menuItem, index) => (
   <StyledLink key={index} to={menuItem.path}>{menuItem.title}</StyledLink>
@@ -193,7 +200,9 @@ const Header = ({ siteTitle }) => {
 
   return (
     <HeaderWrapper>
-      <Nav>
+      <Nav 
+        navbarClosed={navbarClosed}
+      >
         <LogoLink to='/'>
             <Logo />
         </LogoLink>
